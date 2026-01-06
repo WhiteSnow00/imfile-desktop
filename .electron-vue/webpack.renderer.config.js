@@ -50,6 +50,7 @@ let rendererConfig = {
               implementation: require('sass'),
               additionalData: '@import "@/components/Theme/Variables.scss";',
               sassOptions: {
+                quietDeps: true,
                 includePaths:[__dirname, 'src']
               }
             },
@@ -68,6 +69,7 @@ let rendererConfig = {
               indentedSyntax: true,
               additionalData: '@import "@/components/Theme/Variables.scss";',
               sassOptions: {
+                quietDeps: true,
                 includePaths:[__dirname, 'src']
               }
             },
@@ -105,8 +107,8 @@ let rendererConfig = {
           options: {
             extractCSS: process.env.NODE_ENV === 'production',
             loaders: {
-              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader',
+              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1&sassOptions[quietDeps]=true',
+              scss: 'vue-style-loader!css-loader!sass-loader?sassOptions[quietDeps]=true',
               less: 'vue-style-loader!css-loader!less-loader'
             }
           }
